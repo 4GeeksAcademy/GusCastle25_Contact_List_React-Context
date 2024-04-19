@@ -5,13 +5,13 @@ import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
 
-export const Demo = () => {
+export const Form = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="container">
 			<ul className="list-group">
-				{store.demo.map((item, index) => {
+				{store.form.map((item, index) => {
 					return (
 						<li
 							key={index}
