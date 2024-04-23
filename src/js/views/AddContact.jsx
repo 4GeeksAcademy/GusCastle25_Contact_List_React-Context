@@ -13,13 +13,10 @@ export const AddContact =() => {
             actions.CreateContact(userInput);
             console.log(userInput)
     };
-    return (
-<>
-<form onSubmit={e => handleSubmit(e)}>
-    <Link to="/">
-        <button className="btn btn-primary float-end">Back home</button>
-    </Link>
-
+    return (        
+<><form onSubmit={e => handleSubmit(e)}>
+    
+    <h1 className="text-center mt-5">Add Contact</h1>
     <div className="container mt-5">
         <div className="mt-5">        
             <label className="form-label d-flex text-start">
@@ -74,7 +71,13 @@ export const AddContact =() => {
             placeholder="Address" />
     </div>
     </div>
-            <input type="submit" value={"save"} className="btn btn-primary float-end"></input>
+    <div class="d-grid gap-2 col-2 justify-content-md-end">
+        <button class="btn btn-primary" type="submit" value={"save"}>Save</button>
+        <Link to="/" className="ml-auto">
+            <button className="btn btn-primary">Back home</button>
+        </Link>
+
+    </div>
 </form>
 </>      
 
