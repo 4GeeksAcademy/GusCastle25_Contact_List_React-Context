@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			contactos : [],
+			contacts : [],
 		},
 
 		actions: {
@@ -37,7 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						})
 						.then((response) => response.json())
 						.then((result) => {
-							setStore({contactos: result.contacts });
+							setStore({contacts: result.contacts });
 							console.log(result)
 						}
 						)
@@ -70,15 +70,15 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .catch(error => console.error(error));
             },
 
-			EditContact : async (idtwo , userInputTwo) => {
+			EditContact : async (userInputTwo) => {
 				const myHeaders = new Headers();
 					myHeaders.append("Content-Type", "application/json");
 
 					const raw = JSON.stringify({
-					"name": userInputTwo.nombredos,
-					"phone": userInputTwo.direcciondos,
-					"email": userInputTwo.telefonodos,
-					"address": userInputTwo.correodos
+					"name": userInputTwo.name,
+					"phone": userInputTwo.phone,
+					"email": userInputTwo.email,
+					"address": userInputTwo.addres
 					});
 
 					const requestOptions = {
@@ -88,10 +88,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 					};
 
-					fetch(`https://playground.4geeks.com/contact/agendas/GusCastle25/contacts/${idtwo}`, requestOptions)
+					fetch(`https://playground.4geeks.com/contact/agendas/GusCastle25/contacts/${userInputTwo.id}`, requestOptions)
 					.then(response => {
-						if (!response.ok) {console.log("error")}
-						return console.log(response);})
+						if (response.ok) getActions().Contacts()})
 					.then((result) => console.log(result))
 					.catch((error) => console.error(error));
 			},

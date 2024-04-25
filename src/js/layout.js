@@ -4,13 +4,14 @@ import ScrollToTop from "./component/scrollToTop";
 
 //import { Home } from "./views/home";
 //import { Demo } from "./views/demo";
-import { Single } from "./views/single";
+//import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 //import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { AddContact } from "/workspaces/GusCastle25_Contact_List_React-Context/src/js/views/AddContact.jsx";
 import { Contacts } from "./views/Contacts.jsx";
+import { EditContact } from "./views/EditContact.jsx";
 
 //import { UserContextProvider } from "./context/Users/UserContext.js";
 //create your first component
@@ -26,7 +27,7 @@ const Layout = () => {
 					<Routes>
 						<Route path="/" element={<Contacts />} />
 						<Route path="/AddContact" element={<AddContact />} />
-						<Route path="/single/:theid" element={<Single />} />
+						<Route path="/EditContact/:id" element={<EditContact />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />
