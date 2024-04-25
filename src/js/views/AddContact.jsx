@@ -1,20 +1,24 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link,  } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { useNavigate } from "react-router-dom";
 
 
 
 export const AddContact =() => {
-        const {store, actions} = useContext(Context);
+    const {store, actions} = useContext(Context);
     const [userInput, setUserInput] = useState([]);
+    const navigate = useNavigate() 
 
     const handleSubmit = e => {
         e.preventDefault();
             actions.CreateContact(userInput);
             console.log(userInput)
+            navigate("/")
     };
+
     return (        
-<><form onSubmit={e => handleSubmit(e)}>
+<><form onSubmit={handleSubmit}>
     
     <h1 className="text-center mt-5">Add Contact</h1>
     <div className="container mt-5">
@@ -72,6 +76,7 @@ export const AddContact =() => {
     </div>
     </div>
     <div class="d-grid gap-2 col-2 justify-content-md-end">
+
         <button class="btn btn-primary" type="submit" value={"save"}>Save</button>
         <Link to="/" className="ml-auto">
             <button className="btn btn-primary">Back home</button>
